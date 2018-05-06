@@ -29,7 +29,7 @@ function SpeedX150() {
 }
 
 function Play() {
-    var playButton = $('.playButton')[0]
+    var playButton = $('.playButton')[0];
     if (playButton != undefined) {
         playButton.click();
         console.log('Play() success');
@@ -38,7 +38,7 @@ function Play() {
 
 function Silent() {
     if(!IsSilent()) {
-        var volumeButton = $('.volumeIcon')[0]
+        var volumeButton = $('.volumeIcon')[0];
         volumeButton.click();
     }
 }
