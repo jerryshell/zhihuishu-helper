@@ -1,59 +1,73 @@
-// 任务周期，单位秒
-const TASK_TIME = 5
+/**
+ * @author Jerry <calljerryli@outlook.com>
+ * @description 智慧树学习助手：自动下一节、自动关闭弹窗、自动 1.5 倍速、自动播放、自动静音
+ * @version 1.0.3
+ */
 
-// 关闭弹窗
+var taskTime = 5;
+
 function ClosePopup() {
-    var closeButton = $('.popboxes_close')[0]
+    var closeButton = $('.popboxes_close')[0];
     if (closeButton != undefined) {
-        closeButton.click()
-        console.log('ClosePopup() success')
+        closeButton.click();
+        console.log('ClosePopup() success');
     }
 }
 
-// 进入下一节课
 function NextLesson() {
-    var progress = $('div.progressbar_box_tip span')[0]
+    var progress = $('div.progressbar_box_tip span')[0];
     if (progress.textContent == "本节视频,累计观看时间『100%』") {
-        var nextButton = $('.next_lesson_bg')[0]
-        nextButton.click()
-        console.log("NextLesson() success")
+        var nextButton = $('.next_lesson_bg')[0];
+        nextButton.click();
+        console.log("NextLesson() success");
     }
 }
 
-// 1.5 倍速
 function SpeedX150() {
-    var speedButton = $('.speedTab15')[0]
-    speedButton.click()
+    var speedButton = $('.speedTab15')[0];
+    speedButton.click();
 }
 
-// 播放
 function Play() {
     var playButton = $('.playButton')[0]
     if (playButton != undefined) {
-        playButton.click()
-        console.log('Play() success')
+        playButton.click();
+        console.log('Play() success');
     }
 }
 
-// 开始任务
+function Silent() {
+    if(!IsSilent()) {
+        var volumeButton = $('.volumeIcon')[0]
+        volumeButton.click();
+    }
+}
+
+function IsSilent() {
+    return $('.volumeNone').length != 0;
+}
+
 function start() {
-    ClosePopup()
-    NextLesson()
-    Play()
-    autoClosePopupTaskID = setInterval(ClosePopup, TASK_TIME * 1000)
-    autoNextLessonTaskID = setInterval(NextLesson, TASK_TIME * 1000)
-    autoSpeedX150TaskID = setInterval(SpeedX150, TASK_TIME * 1000)
-    autoPlayTaskID = setInterval(Play, TASK_TIME * 1000)
-    console.log('start')
+    ClosePopup();
+    NextLesson();
+    SpeedX150();
+    Play();
+    Silent();
+    autoClosePopupTaskID = setInterval(ClosePopup, taskTime * 1000);
+    autoNextLessonTaskID = setInterval(NextLesson, taskTime * 1000);
+    autoSpeedX150TaskID = setInterval(SpeedX150, taskTime * 1000);
+    autoPlayTaskID = setInterval(Play, taskTime * 1000);
+    aotuSilentTaskID = setInterval(Silent, taskTime * 1000);
+    console.log('start');
 }
 
-// 取消任务
 function stop() {
-    clearInterval(autoClosePopupTaskID)
-    clearInterval(autoNextLessonTaskID)
-    clearInterval(autoSpeedX150TaskID)
-    clearInterval(autoPlayTaskID)
-    console.log('stop')
+    clearInterval(autoClosePopupTaskID);
+    clearInterval(autoNextLessonTaskID);
+    clearInterval(autoSpeedX150TaskID);
+    clearInterval(autoPlayTaskID);
+    clearInterval(aotuSilentTaskID);
+    console.log('stop');
 }
 
-start()
+start();
