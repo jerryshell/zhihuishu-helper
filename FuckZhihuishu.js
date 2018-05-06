@@ -43,7 +43,7 @@ function start() {
     autoClosePopupTaskID = setInterval(ClosePopup, TASK_TIME * 1000)
     autoNextLessonTaskID = setInterval(NextLesson, TASK_TIME * 1000)
     autoSpeedX150TaskID = setInterval(SpeedX150, TASK_TIME * 1000)
-    autoPlayTaskID = setInterval(Play, taskTime * 1000)
+    autoPlayTaskID = setInterval(Play, TASK_TIME * 1000)
     console.log('start')
 }
 
