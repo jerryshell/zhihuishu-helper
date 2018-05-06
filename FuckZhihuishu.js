@@ -26,13 +26,24 @@ function SpeedX150() {
     speedButton.click()
 }
 
+// 播放
+function Play() {
+    var playButton = $('.playButton')[0]
+    if (playButton != undefined) {
+        playButton.click()
+        console.log('Play() success')
+    }
+}
+
 // 开始任务
 function start() {
     ClosePopup()
     NextLesson()
+    Play()
     autoClosePopupTaskID = setInterval(ClosePopup, TASK_TIME * 1000)
     autoNextLessonTaskID = setInterval(NextLesson, TASK_TIME * 1000)
     autoSpeedX150TaskID = setInterval(SpeedX150, TASK_TIME * 1000)
+    autoPlayTaskID = setInterval(Play, taskTime * 1000)
     console.log('start')
 }
 
@@ -41,6 +52,7 @@ function stop() {
     clearInterval(autoClosePopupTaskID)
     clearInterval(autoNextLessonTaskID)
     clearInterval(autoSpeedX150TaskID)
+    clearInterval(autoPlayTaskID)
     console.log('stop')
 }
 
