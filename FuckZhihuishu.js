@@ -1,17 +1,19 @@
 /**
+ * 智慧树学习助手
  * @author Jerry <calljerryli@outlook.com>
- * @description 智慧树学习助手：自动下一节、自动关闭弹窗、自动 1.5 倍速、自动播放、自动静音
  * @version 1.4.0
  */
 
+// 任务周期，单位秒
 var taskTime = 5;
 
+// 功能列表，不需要的功能直接在这里删掉即可
 var features = [
-    ClosePopup,
-    NextLesson,
-    SpeedX150,
-    Play,
-    Silent,
+    ClosePopup, // 自动关闭弹窗
+    NextLesson, // 自动进入下一节
+    SpeedX150,  // 自动 1.5 倍速
+    Play,       // 自动播放
+    Silent,     // 自动静音
 ];
 
 var tasksID = new Array();
