@@ -1,4 +1,4 @@
-# fuck-zhihuishu
+# zhihuishu-helper
 
 智慧树学习助手：自动下一节、自动关闭弹窗、自动 1.5 倍速、自动播放、自动静音
 
